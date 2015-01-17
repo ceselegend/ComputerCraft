@@ -119,6 +119,18 @@ function setBackgroundColor(color)
 	backgroundColor = color
 end
 
+function changeResolution(newResolution)
+	local m=loadPeripheral("monitor")
+	if newResolution > 5 then
+		newResolution = 5
+		print("Resolution can't be greater than 5. Automatically set to max.")
+	elseif newResolution < 0.5 then
+		newResolution = 0.5
+		print("Resolution can't be lower than 5. Automatically set to min.")
+	end
+	m.setTextScale(newResolution)
+end
+
 function drawPixel(x,y,color)
 	local m=loadPeripheral("monitor")
 	m.setCursorPos(x,y)
