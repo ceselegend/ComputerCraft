@@ -102,6 +102,10 @@ function registerPeripheral(side)
 	wyvernsPeripherals[peripheral.getType(side)] = peripheral.wrap(side)
 end
 
+function registerDistantPeripheral(name)
+	wyvernsPeripherals[peripheral.getType(name)] = peripheral.wrap(name)
+end
+
 function loadPeripheral(peripheralType)
 	return wyvernsPeripherals[peripheralType]
 end
